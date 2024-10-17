@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
-
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthProvider/AuthContext';
 
 const Login: React.FC = () => {
     const { signinUser, googleLogin, loading } = useAuth();
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const navigate = useNavigate(); // Initialize the useNavigate hook
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (loading) return; 
+        if (loading) return;
         try {
             await signinUser(email, password);
-            
+            navigate('/'); // Navigate to home page after successful login
         } catch (error) {
             console.error('Login error:', error);
         }
     };
 
     const handleGoogleLogin = async () => {
-        if (loading) return; 
+        if (loading) return;
         try {
             await googleLogin();
-           
+            navigate('/'); // Navigate to home page after successful Google login
         } catch (error) {
             console.error('Google login error:', error);
         }
@@ -32,11 +32,11 @@ const Login: React.FC = () => {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg border border-blue-300">
-            <h2 className="text-2xl font-bold text-blue-600 mb-2 text-center">Please Sign in</h2>
+                <h2 className="text-2xl font-bold text-blue-600 mb-2 text-center">Please Sign in</h2>
                 <p className="text-gray-600 text-center text-base mb-2">
-                You need to Sign in first to continue
+                    You need to Sign in first to continue
                 </p>
-            <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between">
                     <hr className="flex-grow border-gray-300" />
                     <span className="px-2 text-gray-500">Sign in</span>
                     <hr className="flex-grow border-gray-300" />
