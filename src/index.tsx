@@ -8,6 +8,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import UserLayout from './Layouts/UserLayout/UserLayout';
+import Login from './Auth/Login/Login';
+import Signup from './Auth/SignUp/Signup';
+import { AuthProvider } from './AuthProvider/AuthContext';
+// import AuthProvider from './AuthProvider/AuthProvider';
 
 
 
@@ -20,6 +24,14 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />
       },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/signup",
+        element: <Signup />
+      },
     ]
   },
 ]);
@@ -30,9 +42,9 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  <AuthProvider>
     <RouterProvider router={router} />
-  </React.StrictMode>
+   </AuthProvider>
 );
 
 
