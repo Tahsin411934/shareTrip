@@ -196,7 +196,7 @@ const SearchBar: React.FC = () => {
           type="date"
           value={returnDate}
           onChange={(e) => setReturnDate(e.target.value)}
-          className={`${tripType === "oneway" ? "hidden" : ""
+          className={`${tripType === "oneway" ? "" : ""
             } border border-gray-300 md:col-span-5 p-2 rounded w-full`}
           disabled={tripType === "oneway"}
         />
