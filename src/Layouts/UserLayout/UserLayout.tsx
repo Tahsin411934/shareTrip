@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import { useAuth } from '../../AuthProvider/AuthContext';
 import LoadingIcon from '../LoadingIcon/LoadingIcon';
+import Footer from '../../Components/Footer/Footer';
 
 const UserLayout = () => {
   const {loading,setLoading} = useAuth()
@@ -18,6 +19,7 @@ const UserLayout = () => {
       <Header></Header>
       <Outlet></Outlet>
       <ToastContainer />
+      <Footer></Footer>
     </div>
   )
 }

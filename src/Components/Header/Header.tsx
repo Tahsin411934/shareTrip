@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
                 </Link>
                 <button
                   onClick={logoutUser} // Logout function
-                  className="bg-red-700 text-white rounded-3xl px-5 py-2 text-sm font-semibold"
+                  className="bg-blue-700 text-white rounded-3xl px-5 py-2 text-sm font-semibold"
                 >
                   Logout
                 </button>
